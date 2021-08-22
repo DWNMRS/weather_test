@@ -1,0 +1,28 @@
+.info {
+  color: #fff;
+  max-width: 511px;
+  line-height: 36px;
+}
+
+.description {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.possibilities {
+  margin-top: 40px;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 28px;
+
+  &_list {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    list-style: url('./img/point.svg');
+  }
+}
+
+li{
+  margin-bottom: 24px;
+}

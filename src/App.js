@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import './App.scss';
+import './reset.css';
+import Header from "./components/header/header";
+import Content from "./components/content/content";
+import Footer from "./components/footer/footer";
+import MobileMenu from './components/mobileMenu/mobileMenu';
+import { BrowserRouter } from 'react-router-dom';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="page">
+        <Header />
+        <Content />
+        <Footer />
+        <MobileMenu />
+      </div>
+    </BrowserRouter>
   );
 }
 
