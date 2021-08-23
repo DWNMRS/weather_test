@@ -23,7 +23,7 @@ const Home = () => {
             const weatherCityInfo = {}
             weatherCityInfo.name = resJson.name
             weatherCityInfo.temp = resJson.main.temp
-            weatherCityInfo.weatherMain = resJson.weather[0].main
+            weatherCityInfo.weatherMain = resJson.weather[0].icon
 
             weatherData.push(weatherCityInfo)
           }
