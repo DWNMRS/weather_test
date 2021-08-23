@@ -1,45 +1,59 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import style from "./home.module.scss"
 import Item from "./item/item"
 
-const cities = ['Moscow', 'Paris', 'London', 'New York Mills', 'Beijing', 'Tokyo']
-
-async function weather(name) {
-  try {
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${name}&units=metric&appid=cdbce4d308bc616ba3e4378cb758342a`);
-
-    return await response.json()
-  } catch (e) {
-    return {
-      name: 'error'
-    }
-  }
-}
-async function testName() {
-  let data = [];
-  for (let index = 0; index < cities.length; index++) {
-    data.push(await weather(cities[index]))
-  }
-}
-
-testName()
-
 
 const Home = () => {
+  const [data, setData] = useState([])
+
+
+  const cities = ['Moscow', 'Paris', 'London', 'New York Mills', 'Beijing', 'Tokyo']
+
+  const weather = () => {
+
+    const weatherData = []
+    const promises = []
+    cities.forEach(cityName => {
+
+      promises.push(
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=cdbce4d308bc616ba3e4378cb758342a`)
+          .then(res => res.json())
+          .then(resJson => {
+            console.log(resJson)
+            const weatherCityInfo = {}
+            weatherCityInfo.name = resJson.name
+            weatherCityInfo.temp = resJson.main.temp
+            weatherCityInfo.weatherMain = resJson.weather[0].main
+
+            weatherData.push(weatherCityInfo)
+          }
+          )
+      )
+
+    })
+
+    Promise.all(promises).then(res => setData(weatherData))
+  }
+
+  useEffect(() => {
+    weather()
+  }, [])
+
   return (
     <div className={style.home}>
       <div className={style.container}>
         <form>
-          <input type="search" className={style.searchCity}></input>
+          <input type="search" className={style.searchCity} placeholder="Укажите город"></input>
         </form>
 
         <div className={style.cities}>
-          <Item></Item>
-          <Item></Item>
-          <Item></Item>
-          <Item></Item>
-          <Item></Item>
-          <Item></Item>
+          {data.map((city, index) => (
+            <Item key={`weather_${index}`}>
+              <span className={style.cityName}>{city.name} </span>
+              <span className={style.cityTemp}>{city.temp}</span>
+              <span className={style.cityWeather}>{city.weatherMain}</span>
+            </Item>
+          ))}
         </div>
       </div>
     </div>
