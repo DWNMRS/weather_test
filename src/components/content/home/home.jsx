@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import style from "./home.module.scss"
 import Item from "./item/item"
+import icons from "./icons"
+
+
 
 
 const Home = () => {
   const [data, setData] = useState([])
 
-
   const cities = ['Moscow', 'Paris', 'London', 'New York Mills', 'Beijing', 'Tokyo']
-
+  
   const weather = () => {
 
     const weatherData = []
@@ -22,8 +24,8 @@ const Home = () => {
             console.log(resJson)
             const weatherCityInfo = {}
             weatherCityInfo.name = resJson.name
-            weatherCityInfo.temp = resJson.main.temp
-            weatherCityInfo.weatherMain = resJson.weather[0].icon
+            weatherCityInfo.temp = Math.round(resJson.main.temp)
+            weatherCityInfo.weatherMain = resJson.weather[0].main
 
             weatherData.push(weatherCityInfo)
           }
@@ -39,6 +41,10 @@ const Home = () => {
     weather()
   }, [])
 
+  let renderweather =(type) => {
+   return icons.filter(icon => icon.type === type)[0].image
+  }
+
   return (
     <div className={style.home}>
       <div className={style.container}>
@@ -50,8 +56,8 @@ const Home = () => {
           {data.map((city, index) => (
             <Item key={`weather_${index}`}>
               <span className={style.cityName}>{city.name} </span>
-              <span className={style.cityTemp}>{city.temp}</span>
-              <span className={style.cityWeather}>{city.weatherMain}</span>
+              <span className={style.cityTemp}>{city.temp}°</span>
+              <div className={style.cityWeather}>{renderweather(city.weatherMain)}</div>
             </Item>
           ))}
         </div>

@@ -37,3 +37,11 @@ form {
     grid-template-columns: 1fr 1fr;
   }
 }
+
+.cityWeather {
+  width: 88px;
+  height: 88px;
+  object-fit: contain;
+  overflow: hidden;
+  
+}
