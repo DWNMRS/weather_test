@@ -7,10 +7,9 @@ import icons from "./icons"
 
 
 const Home = () => {
-  const [data, setData] = useState([])
 
+  const [data, setData] = useState([])
   const cities = ['Moscow', 'Paris', 'London', 'New York Mills', 'Beijing', 'Tokyo']
-  
   const weather = () => {
 
     const weatherData = []
@@ -26,14 +25,11 @@ const Home = () => {
             weatherCityInfo.name = resJson.name
             weatherCityInfo.temp = Math.round(resJson.main.temp)
             weatherCityInfo.weatherMain = resJson.weather[0].main
-
             weatherData.push(weatherCityInfo)
           }
           )
       )
-
     })
-
     Promise.all(promises).then(res => setData(weatherData))
   }
 
@@ -44,6 +40,8 @@ const Home = () => {
   let renderweather =(type) => {
    return icons.filter(icon => icon.type === type)[0].image
   }
+
+
 
   return (
     <div className={style.home}>
@@ -65,4 +63,5 @@ const Home = () => {
     </div>
   )
 }
+
 export default Home;
