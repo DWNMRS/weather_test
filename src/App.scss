@@ -1,9 +1,14 @@
 .page {
-  position: relative;
-  padding-bottom: 41px;
+  display: grid;
+  grid-template-areas: 
+  "header"
+  "content"
+  "footer";
+  grid-auto-rows: 65px auto 41px;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   background: #161B30;
   margin: 0 auto;
   font-family: sans-serif;
+  
 }

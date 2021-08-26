@@ -1,0 +1,60 @@
+.container {
+    top: 0;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    background: radial-gradient(at 50% -50%, rgba(255, 255, 255, 0.486), #161b30 60%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.name {
+    margin-top: 76px;
+    font-size: 56px;
+    font-weight: 500;
+}
+
+.description {
+    margin-top: 16px;
+}
+
+.temp {
+    font-size: 130px;
+    font-weight: 600;
+}
+
+.weather {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(#ffffff 20%, #9c9c9c 80%, #8aa9d6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: 435px;
+}
+
+.weatherIcon svg {
+    width: 219px;
+    height: 219px;
+}
+
+.pressureWrap {
+    margin-top: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 130px;
+    height: 24px;
+}
+
+.iconPressure {
+    width: 22px;
+    height: 22px;
+    background: url("./img/barometer.svg") center no-repeat;
+}
+
+.pressure {
+    font-size: 16px;
+    font-weight: 400;
+}

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import style from "./home.module.scss"
-import Item from "./item/item"
-import icons from "./icons"
+import style from "./home.module.scss";
+import Item from "./item/item";
+import icons from "./icons";
+import { Link } from "react-router-dom";
 
 
 
@@ -30,17 +31,17 @@ const Home = () => {
           )
       )
     })
-    
+
     Promise.all(promises).then(res => setData(weatherData))
-    
+
   }
 
   useEffect(() => {
     weather()
   }, [])
 
-  let renderweather =(type) => {
-   return icons.filter(icon => icon.type === type)[0].image
+  let renderweather = (type) => {
+    return icons.filter(icon => icon.type === type)[0].image
   }
 
 
@@ -53,12 +54,14 @@ const Home = () => {
         </form>
 
         <div className={style.cities}>
-          {data.map((city, index) => (
-            <Item key={`weather_${index}`}>
-              <span className={style.cityName}>{city.name} </span>
-              <span className={style.cityTemp}>{city.temp}°</span>
-              <div className={style.cityWeather}>{renderweather(city.weatherMain)}</div>
-            </Item>
+          {!!data && data.map((city, index) => (
+            <Link key={`weather_${index}`} to={`/city/${city.name}`}>
+              <Item >
+                <span className={style.cityName}>{city.name} </span>
+                <span className={style.cityTemp}>{city.temp}°</span>
+                <div className={style.cityWeather}>{renderweather(city.weatherMain)}</div>
+              </Item>
+            </Link>
           ))}
         </div>
       </div>
