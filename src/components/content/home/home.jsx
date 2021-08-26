@@ -24,13 +24,15 @@ const Home = () => {
             const weatherCityInfo = {}
             weatherCityInfo.name = resJson.name
             weatherCityInfo.temp = Math.round(resJson.main.temp)
-            weatherCityInfo.weatherMain = resJson.weather[0].main
+            weatherCityInfo.weatherMain = resJson.weather[0].icon
             weatherData.push(weatherCityInfo)
           }
           )
       )
     })
+    
     Promise.all(promises).then(res => setData(weatherData))
+    
   }
 
   useEffect(() => {
