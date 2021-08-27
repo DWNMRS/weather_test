@@ -18,7 +18,7 @@ let icons = [
     { type: '02d', image: <SunCloud /> },
     { type: '02n', image: <MoonCloud /> },
     { type: '03d', image: <Cloud /> },
-    { type: '03d', image: <Cloud /> },
+    { type: '03n', image: <Cloud /> },
     { type: '04d', image: <DarkCloud /> },
     { type: '04n', image: <DarkCloud /> },
     { type: '09d', image: <Drizzle /> },

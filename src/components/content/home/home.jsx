@@ -8,8 +8,9 @@ import { Link } from "react-router-dom";
 
 
 const Home = () => {
-
   const [data, setData] = useState([])
+  const [inputValue, setInputValue] = useState('')
+  const [suggestCities, setSuggestCities] = useState([])
   const cities = ['Moscow', 'Paris', 'London', 'New York Mills', 'Beijing', 'Tokyo']
   const weather = () => {
 
@@ -40,8 +41,32 @@ const Home = () => {
     weather()
   }, [])
 
-  let renderweather = (type) => {
-    return icons.filter(icon => icon.type === type)[0].image
+  const renderweather = (type) => {
+    const icon = icons.filter(icon => icon.type === type)[0]
+    if (!!icon) {
+      return icon.image
+    }
+    return null
+  }
+
+  const handleInput = (e) => {
+    setSuggestCities([])
+    const currentInputValue = e.target.value
+    if (currentInputValue.length >= 3) {
+      cities.forEach(cityName => {
+        const cityNameLower = cityName.toLowerCase()
+        const indexOfCurrentInputValue = cityNameLower.indexOf(currentInputValue.toLowerCase())
+        console.log(indexOfCurrentInputValue)
+        if (indexOfCurrentInputValue === 0) {
+          setSuggestCities(prev => {
+            const isCityExist = prev.indexOf(cityName) !== -1
+            if (!isCityExist) { prev.push(cityName) }
+            return prev
+          })
+        }
+      })
+    }
+    setInputValue(currentInputValue)
   }
 
 
@@ -49,8 +74,18 @@ const Home = () => {
   return (
     <div className={style.home}>
       <div className={style.container}>
-        <form>
-          <input type="search" className={style.searchCity} placeholder="Укажите город"></input>
+        <form className={style.form}>
+          <input value={inputValue} onInput={(e) => handleInput(e)} type="search" className={style.searchCity} placeholder="Укажите город"></input>
+          {suggestCities.length > 0 &&
+            <ul className={style.suggest}>
+              {suggestCities.map((cityName, index) => (
+                <li className={style.suggestCity} key={`${cityName}_${index}`}>
+                  <Link className={style.suggestLink} to={`/city/${cityName}`}>{cityName}</Link>
+                </li>
+              ))}
+            </ul>
+          }
+
         </form>
 
         <div className={style.cities}>

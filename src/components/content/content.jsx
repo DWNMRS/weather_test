@@ -13,7 +13,7 @@ const Container = () => {
       <Route path="/home" component={Home} />
       <Route path="/history" component={History} />
       <Route path="/info" component={Info} />
-      <Route path="/city/:city" component ={City}/>
+      <Route path="/city/:city" component={City} />
     </div>
   )
 }
