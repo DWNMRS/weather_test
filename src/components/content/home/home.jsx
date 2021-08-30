@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import style from "./home.module.scss";
 import Item from "./item/item";
 import icons from "./icons";
+import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 
 
 
 
 const Home = () => {
+  const history = useHistory();
   const [data, setData] = useState([])
   const [inputValue, setInputValue] = useState('')
   const [suggestCities, setSuggestCities] = useState([])
@@ -41,7 +43,7 @@ const Home = () => {
     weather()
   }, [])
 
-  const renderweather = (type) => {
+  const renderWeather = (type) => {
     const icon = icons.filter(icon => icon.type === type)[0]
     if (!!icon) {
       return icon.image
@@ -69,12 +71,10 @@ const Home = () => {
     setInputValue(currentInputValue)
   }
 
-
-
   return (
     <div className={style.home}>
       <div className={style.container}>
-        <form className={style.form}>
+        <form className={style.form} onSubmit={()=>history.push(`/city/${suggestCities[0]}`)}>
           <input value={inputValue} onInput={(e) => handleInput(e)} type="search" className={style.searchCity} placeholder="Укажите город"></input>
           {suggestCities.length > 0 &&
             <ul className={style.suggest}>
@@ -94,7 +94,7 @@ const Home = () => {
               <Item >
                 <span className={style.cityName}>{city.name} </span>
                 <span className={style.cityTemp}>{city.temp}°</span>
-                <div className={style.cityWeather}>{renderweather(city.weatherMain)}</div>
+                <div className={style.cityWeather}>{renderWeather(city.weatherMain)}</div>
               </Item>
             </Link>
           ))}
