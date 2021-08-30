@@ -1,13 +1,30 @@
 .history {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
   width: 100%;
-  height: 100%;
-  color: #fff;
-  padding:80px 20px;
-
-  @media(max-width: 800px) {
-    padding:20px 20px 80px;
+  padding: 80px 20px;
+  @media (max-width: 800px) {
+    padding: 20px 20px 80px;
   }
+}
+
+.historyItems {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.temp {
+  font-size: 24px;
+  font-weight: 500;
+  margin-right: 22px;
+}
+
+.historyItemBlock {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  justify-content: space-between;
 }

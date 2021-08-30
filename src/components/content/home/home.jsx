@@ -4,9 +4,7 @@ import Item from "./item/item";
 import icons from "./icons";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
-
-
-
+ 
 
 const Home = () => {
   const history = useHistory();

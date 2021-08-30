@@ -32,7 +32,7 @@ const City = () => {
 
         const history = {
             name: weatherData.name,
-            temp: weatherData.main.temp,
+            temp: Math.round(weatherData.main.temp),
             time: '11:40'
         }
         let currentHistory = localStorage.getItem('history')

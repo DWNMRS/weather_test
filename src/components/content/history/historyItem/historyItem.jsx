@@ -1,12 +1,10 @@
 import React from "react";
 import style from "../historyItem/historyItem.module.scss"
 
-export const HistoryItem = () => {
+export const HistoryItem = ({children}) => {
   return (
     <div className={style.item}>
-        <span className={style.time}></span>
-        <span className={style.city}></span>
-        <span className={style.temp}></span>
+        {children}
     </div>
   )
 }

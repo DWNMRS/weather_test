@@ -1,12 +1,8 @@
 .page {
-  display: grid;
-  grid-template-areas: 
-  "header"
-  "content"
-  "footer";
+  position: relative;
   grid-auto-rows: 65px auto 41px;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background: #161B30;
   margin: 0 auto;
   font-family: sans-serif;

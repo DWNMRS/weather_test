@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.scss';
+import style from'./App.module.scss';
 import './reset.css';
 import Header from "./components/header/header";
 import Content from "./components/content/content";
@@ -10,7 +10,7 @@ import { BrowserRouter } from 'react-router-dom';
 const App = () => {
   return (
     <BrowserRouter>
-      <div className="page">
+      <div className={style.page}>
         <Header />
         <Content />
         <Footer />

@@ -13,11 +13,22 @@ const History = () => {
     setHistoryCities(newItem)
   }
 
-  useEffect(() => { getLocalStorageItems()},[])
+  useEffect(() => { getLocalStorageItems() }, [])
 
   return (
     <div className={style.history}>
-      {historyCities && historyCities.map((historyItem, index) => (<HistoryItem></HistoryItem>))}
+      <div className={style.historyItems}>
+        {historyCities && historyCities.map((historyItem, index) => (
+          <HistoryItem>
+            <div className={style.historyItemBlock}>
+              <span className={style.time}>{historyItem.time}</span>
+              <span className={style.name}>{historyItem.name}</span>
+            </div>
+            <div>
+              <span className={style.temp}>{historyItem.temp}°</span>
+            </div>
+          </HistoryItem>))}
+      </div>
     </div>
   )
 }
