@@ -4,7 +4,7 @@ import Item from "./item/item";
 import icons from "./icons";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
- 
+
 
 const Home = () => {
   const history = useHistory();
@@ -33,8 +33,18 @@ const Home = () => {
       )
     })
 
-    Promise.all(promises).then(res => setData(weatherData))
-
+    Promise.all(promises).then(res => {
+      const weatherDataSort=[]
+      cities.forEach(cityName => {
+        weatherData.forEach(weatherItem => {
+          if (weatherItem.name === cityName) {
+            weatherDataSort.push(weatherItem)
+          }
+        })
+      })
+      setData(weatherDataSort)
+    })
+    
   }
 
   useEffect(() => {
@@ -72,7 +82,7 @@ const Home = () => {
   return (
     <div className={style.home}>
       <div className={style.container}>
-        <form className={style.form} onSubmit={()=>history.push(`/city/${suggestCities[0]}`)}>
+        <form className={style.form} onSubmit={() => history.push(`/city/${suggestCities[0]}`)}>
           <input value={inputValue} onInput={(e) => handleInput(e)} type="search" className={style.searchCity} placeholder="Укажите город"></input>
           {suggestCities.length > 0 &&
             <ul className={style.suggest}>
