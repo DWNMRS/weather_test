@@ -22,10 +22,6 @@ const City = () => {
     }, [])
 
     let renderweather = (type) => {
-        console.log(icons)
-        console.log(icons.filter(icon => icon.type === type))
-        console.log(type)
-        console.log(data)
         return icons.filter(icon => icon.type === type)[0].image
     }
     const getHistoryStore = (weatherData) => {

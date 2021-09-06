@@ -22,7 +22,6 @@ const Home = () => {
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=cdbce4d308bc616ba3e4378cb758342a`)
           .then(res => res.json())
           .then(resJson => {
-            console.log(resJson)
             const weatherCityInfo = {}
             weatherCityInfo.name = resJson.name
             weatherCityInfo.temp = Math.round(resJson.main.temp)
@@ -66,7 +65,6 @@ const Home = () => {
       cities.forEach(cityName => {
         const cityNameLower = cityName.toLowerCase()
         const indexOfCurrentInputValue = cityNameLower.indexOf(currentInputValue.toLowerCase())
-        console.log(indexOfCurrentInputValue)
         if (indexOfCurrentInputValue === 0) {
           setSuggestCities(prev => {
             const isCityExist = prev.indexOf(cityName) !== -1
