@@ -19,7 +19,7 @@ const History = () => {
     <div className={style.history}>
       <div className={style.historyItems}>
         {historyCities && historyCities.map((historyItem, index) => (
-          <HistoryItem>
+          <HistoryItem key={`historyCity_${index}`}>
             <div className={style.historyItemBlock}>
               <span className={style.time}>{historyItem.time}</span>
               <span className={style.name}>{historyItem.name}</span>
