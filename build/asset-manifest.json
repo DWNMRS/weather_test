@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/static/css/main.79a5dded.chunk.css",
+    "main.js": "/static/js/main.0b3bea9d.chunk.js",
+    "main.js.map": "/static/js/main.0b3bea9d.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.dc2d3f0a.js",
+    "runtime-main.js.map": "/static/js/runtime-main.dc2d3f0a.js.map",
+    "static/js/2.d7685788.chunk.js": "/static/js/2.d7685788.chunk.js",
+    "static/js/2.d7685788.chunk.js.map": "/static/js/2.d7685788.chunk.js.map",
+    "static/js/3.365f467c.chunk.js": "/static/js/3.365f467c.chunk.js",
+    "static/js/3.365f467c.chunk.js.map": "/static/js/3.365f467c.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.79a5dded.chunk.css.map": "/static/css/main.79a5dded.chunk.css.map",
+    "static/js/2.d7685788.chunk.js.LICENSE.txt": "/static/js/2.d7685788.chunk.js.LICENSE.txt",
+    "static/media/Big snow.9511d893.svg": "/static/media/Big snow.9511d893.svg",
+    "static/media/Sun cloud angled rain.7511ec29.svg": "/static/media/Sun cloud angled rain.7511ec29.svg",
+    "static/media/city.module.scss": "/static/media/buttonBack.670910e9.svg",
+    "static/media/clouds(1).1492501c.svg": "/static/media/clouds(1).1492501c.svg",
+    "static/media/cloudymoon.6e893811.svg": "/static/media/cloudymoon.6e893811.svg",
+    "static/media/cloudysun.ddc3c8b7.svg": "/static/media/cloudysun.ddc3c8b7.svg",
+    "static/media/darkcloud.6c28a631.svg": "/static/media/darkcloud.6c28a631.svg",
+    "static/media/logo.c2599dce.svg": "/static/media/logo.c2599dce.svg",
+    "static/media/moon.7084ba51.svg": "/static/media/moon.7084ba51.svg",
+    "static/media/moonrain.234cfefc.svg": "/static/media/moonrain.234cfefc.svg",
+    "static/media/info.module.scss": "/static/media/point.5a99a49f.svg",
+    "static/media/sun.90ca1e4d.svg": "/static/media/sun.90ca1e4d.svg",
+    "static/media/sunrain.c930dd4f.svg": "/static/media/sunrain.c930dd4f.svg",
+    "static/media/thunderstorm.5f546b13.svg": "/static/media/thunderstorm.5f546b13.svg",
+    "static/media/tornado.29a2ec2d.svg": "/static/media/tornado.29a2ec2d.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.dc2d3f0a.js",
+    "static/js/2.d7685788.chunk.js",
+    "static/css/main.79a5dded.chunk.css",
+    "static/js/main.0b3bea9d.chunk.js"
+  ]
+}
